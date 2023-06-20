@@ -27,7 +27,7 @@ const DetailCard = ({ details, screens, pathId }) => {
     <DetailShadow
       onClick={(e) => {
         e.stopPropagation();
-        navigate("/");
+        navigate("");
       }}
     >
       <DetailCardDiv

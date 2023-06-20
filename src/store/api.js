@@ -45,4 +45,4 @@ export const getGameScreenshots = (game_Id) =>
 
 // Search results
 export const getSerachResult = (game_name) =>
-  `${baseUrl}games?key=${key}?search=${game_name}&page_size=10`;
+  `${baseUrl}games?key=${key}&search=${game_name}&page_size=10`;

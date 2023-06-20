@@ -4,7 +4,7 @@ import gameReducer from "./features/gamesSlice";
 import searchReducer from "./features/searchSlice";
 
 const store = configureStore({
-  reducer: { games: gameReducer, detail: detailSlice, search: searchReducer },
+  reducer: { detail: detailSlice, games: gameReducer, search: searchReducer },
 });
 
 export default store;

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { fetchSearchResult } from "../store/features/searchSlice";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -18,24 +18,29 @@ const Navbar = () => {
           onChange={(e) => setSerachInput(e.target.value)}
           placeholder="eg. Cyberpunk"
         />
-        <button onClick={() => dispatch(fetchSearchResult(searchInput))}>
-          Search
-        </button>
+        <Link to="/search">
+          <button
+            onClick={() => {
+              dispatch(fetchSearchResult(searchInput));
+            }}
+          >
+            Search
+          </button>
+        </Link>
       </SearchDiv>
     </NavbarDiv>
   );
-  
 };
 
 export default Navbar;
 
 const NavbarDiv = styled(motion.div)`
-  width: 80vw;
-  margin: 0 auto;
-  padding: 24px 0;
+  width: 100vw;
+  padding: 24px 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #25262e;
   h3 {
     font-size: 24px;
   }
@@ -43,16 +48,24 @@ const NavbarDiv = styled(motion.div)`
 
 const SearchDiv = styled(motion.div)`
   display: flex;
+
   input {
-    padding: 16px 3rem;
+    padding: 16px 3rem 16px 1rem;
     outline: none;
     border: none;
     text-decoration: none;
+    background: #32333e;
+    color: #dedfe3;
   }
+
   button {
     padding: 0 24px;
     outline: none;
     border: none;
+    height: 100%;
     text-decoration: none;
+    background: #101216;
+    color: #898a94;
+    cursor: pointer;
   }
 `;

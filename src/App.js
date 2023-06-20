@@ -2,10 +2,9 @@ import { fetchGames } from "./store/features/gamesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import GlobalStyles from "./components/GlobalStyles";
-import styled from "styled-components";
-import { motion } from "framer-motion";
 import { fadeIn } from "./animation";
 import Navbar from "./components/Navbar";
+
 import {
   RouterProvider,
   createBrowserRouter,
@@ -15,17 +14,17 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Detail from "./components/Detail";
+import Search from "./pages/Search";
 
 export default function App() {
   const dispatch = useDispatch();
-  const details = useSelector((state) => state.details);
   useEffect(() => {
     dispatch(fetchGames());
   }, []);
   return (
     <div className="App">
       <GlobalStyles />
-      <RouterProvider router={router(dispatch, details)}></RouterProvider>
+      <RouterProvider router={router()}></RouterProvider>
     </div>
   );
 }
@@ -45,6 +44,9 @@ const router = () => {
       <Route path="/" element={<Root />}>
         <Route path="" element={<Home />}>
           <Route path={"/game/:id"} element={<Detail />} />
+        </Route>
+        <Route path={"/search"} element={<Search />}>
+          <Route path={"/search/:id"} element={<Detail />} />
         </Route>
       </Route>
     )
