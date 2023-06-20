@@ -42,3 +42,7 @@ export const getGameDetails = (game_id) =>
 	
 export const getGameScreenshots = (game_Id) =>
 	`${baseUrl}games/${game_Id}/screenshots?key=${key}`;
+
+
+// Search results
+export const getSerachResult = (game_name) => `${baseUrl}games?key=${key}?search=${game_name}&page_size=10`
