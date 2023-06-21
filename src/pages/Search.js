@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import GameCard from "../components/GameCard";
 import { useSelector } from "react-redux";
 import Loading from "../components/Loading";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { FaArrowLeft } from "react-icons/fa";
 import Detail from "../components/Detail";
 const Search = () => {
   const location = useLocation();
@@ -11,6 +13,7 @@ const Search = () => {
   const isLoading = useSelector((state) => state.search.isLoading);
   const searchFor = useSelector((state) => state.search.searchFor);
   const searchResult = useSelector((state) => state.search.data);
+  const navigate = useNavigate();
   return (
     <>
       {isLoading ? (
@@ -18,6 +21,11 @@ const Search = () => {
       ) : (
         <SearchDiv>
           {pathId && <Detail pathId={pathId} />}
+          <div className="control-div">
+            <button onClick={() => navigate("/")}>
+              <FaArrowLeft />
+            </button>
+          </div>
           <h2>Serach for "{searchFor}"</h2>
           <SearchCardGrid>
             {searchResult.map((game) => (
@@ -37,6 +45,18 @@ const SearchDiv = styled(motion.div)`
   margin: 0 auto;
   h2 {
     padding: 24px 0;
+  }
+  .control-div {
+    padding: 16px 0;
+    width: 100%;
+    border-bottom: 1.5px solid #3d3e44;
+    button {
+      font-size: 1rem;
+      background: none;
+      border: none;
+      color: #898a94;
+      cursor: pointer;
+    }
   }
 `;
 const SearchCardGrid = styled(motion.div)`
