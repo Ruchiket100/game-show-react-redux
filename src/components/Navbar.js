@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchSearchResult } from "../store/features/searchSlice";
+import { slideRight } from "../animation";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -33,7 +34,10 @@ const Navbar = () => {
       </SearchDiv>
       <SearchMobileDiv isOpen={isOpen}>
         {isOpen ? (
-          <input
+          <motion.input
+            variants={slideRight}
+            initial="hidden"
+            animate="show"
             value={searchInput}
             onChange={(e) => setSerachInput(e.target.value)}
             placeholder="eg. Cyberpunk"
