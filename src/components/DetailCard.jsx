@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 //icons
+import { FaArrowLeft } from "react-icons/fa";
 import { GrPersonalComputer } from "react-icons/gr";
 import { AiFillApple } from "react-icons/ai";
 
@@ -37,7 +38,12 @@ const DetailCard = ({ details, screens, pathId }) => {
         animate={{ y: 0 }}
         onClick={(e) => e.stopPropagation()}
       >
-        <img src={details.background_image} alt="" className="header-img" />
+        <DetailHeader>
+          <button onClick={() => navigate("")}>
+            <FaArrowLeft />
+          </button>
+          <img src={details.background_image} alt="" className="header-img" />
+        </DetailHeader>
         <Header>
           <h2>{details.name}</h2>
           <h4>{details.released}</h4>
@@ -98,11 +104,29 @@ const DetailShadow = styled(motion.div)`
 `;
 
 const DetailCardDiv = styled(motion.div)`
+  position: relative;
   width: 70%;
   margin: 0 auto;
   background-color: #25262e;
   img {
     width: 100%;
+  }
+  @media (max-width: 450px) {
+    width: 90%;
+  }
+`;
+
+const DetailHeader = styled(motion.div)`
+  button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(0, 3, 17, 0.5);
+    border: none;
+    color: #fffff0;
+    padding: 8px;
+    margin: 8px 8px;
+    cursor: pointer;
   }
 `;
 
