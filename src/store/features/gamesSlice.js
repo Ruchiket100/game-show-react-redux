@@ -21,7 +21,8 @@ export const fetchGames = createAsyncThunk(
 		};
 	}
 );
-const gamesSlice = createSlice({
+
+const gamesSlice = createSlice({	
 	name: "games",
 	initialState,
 	reducers: {},
