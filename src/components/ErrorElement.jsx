@@ -7,7 +7,11 @@ const ErrorElement = () => {
     <ErrorDiv>
       <h1>Error Occur</h1>
       <p>
-        You can go to <Link to="">homepage</Link> and try again..
+        You can go to{" "}
+        <Link className="homepage-link" to="/">
+          homepage
+        </Link>{" "}
+        and try again..
       </p>
     </ErrorDiv>
   );
@@ -21,6 +25,10 @@ const ErrorDiv = styled(motion.div)`
   padding: auto;
   text-align: center;
   background: #101216;
+  .homepage-link {
+    text-decoration: none;
+    color: white;
+  }
   p {
     color: #738496;
   }
