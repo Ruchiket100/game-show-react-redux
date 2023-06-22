@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { FaArrowLeft } from "react-icons/fa";
 import Detail from "../components/Detail";
+import { useEffect } from "react";
 const Search = () => {
   const location = useLocation();
   const pathId = location.pathname.split("/")[2];
@@ -14,6 +15,9 @@ const Search = () => {
   const searchFor = useSelector((state) => state.search.searchFor);
   const searchResult = useSelector((state) => state.search.data);
   const navigate = useNavigate();
+  useEffect(() => {
+    if (searchFor === "") navigate("/");
+  }, []);
   return (
     <>
       {isLoading ? (
