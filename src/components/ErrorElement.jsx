@@ -28,6 +28,9 @@ const ErrorDiv = styled(motion.div)`
   .homepage-link {
     text-decoration: none;
     color: white;
+    &:hover {
+      font-weight: bold;
+    }
   }
   p {
     color: #738496;
