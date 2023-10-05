@@ -1,2 +1,2 @@
 # game-show-react-redux
-Created with CodeSandbox
+GameShow using React and Redux toolkit
