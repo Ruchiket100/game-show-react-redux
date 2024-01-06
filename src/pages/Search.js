@@ -53,7 +53,7 @@ const SearchDiv = styled(motion.div)`
   .control-div {
     padding: 16px 0;
     width: 100%;
-    border-bottom: 1.5px solid #3d3e44;
+    border-bottom: 1.5px solid #3d3e64;
     button {
       font-size: 1rem;
       background: none;
